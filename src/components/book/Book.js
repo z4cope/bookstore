@@ -17,7 +17,7 @@ import {
   CurrentChapter,
   ChapterNumber,
   UpdateProgress,
-} from "./styles/book";
+} from './styles/book';
 
 const Book = ({
   bookType,

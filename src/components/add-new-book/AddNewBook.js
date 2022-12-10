@@ -4,14 +4,14 @@ import {
   NewBookName,
   NewBookType,
   SubmitBook,
-} from "./styles/addNewBook";
+} from './styles/addNewBook';
 
 const AddNewBook = () => (
   <NewBookWrapper>
     <SectionTitle>Add New Book</SectionTitle>
-    <NewBookName></NewBookName>
-    <NewBookType></NewBookType>
-    <SubmitBook></SubmitBook>
+    <NewBookName />
+    <NewBookType />
+    <SubmitBook />
   </NewBookWrapper>
 );
 

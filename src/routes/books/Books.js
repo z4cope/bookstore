@@ -1,13 +1,14 @@
-import { BooksContainer } from "./styles/books";
-import Book from "../../components/book/Book";
-import books from "../../fixtures/booksData";
-import AddNewBook from "../../components/add-new-book/AddNewBook";
+import { BooksContainer } from './styles/books';
+import Book from '../../components/book/Book';
+import books from '../../fixtures/booksData';
+import AddNewBook from '../../components/add-new-book/AddNewBook';
+
 const Books = () => (
   <>
     <BooksContainer>
-      {books.map((book, i) => (
+      {books.map((book) => (
         <Book
-          key={i}
+          key={book.id}
           bookType={book.bookType}
           bookName={book.bookName}
           bookAuther={book.bookAuther}
