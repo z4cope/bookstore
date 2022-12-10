@@ -1,0 +1,10 @@
+.status {
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  color: #fff;
+  background: #2e94ff;
+  text-transform: uppercase;
+  cursor: pointer;
+}

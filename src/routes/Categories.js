@@ -1,3 +1,9 @@
-const Categories = () => <h1>Categories</h1>;
+import './categories.css';
+
+const Categories = () => (
+  <button className="status" type="button">
+    Check status
+  </button>
+);
 
 export default Categories;
