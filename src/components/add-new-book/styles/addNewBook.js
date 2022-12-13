@@ -18,6 +18,7 @@ export const NewBookWrapper = styled.form`
 export const SectionTitle = styled.h2``;
 
 export const NewBookName = styled.input``;
+export const NewAutherName = styled.input``;
 
 export const NewBookType = styled.div``;
 

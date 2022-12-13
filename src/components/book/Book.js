@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import {
   BookWrapper,
   BookData,
@@ -19,40 +20,48 @@ import {
   UpdateProgress,
 } from './styles/book';
 
+import { removeBook } from '../../redux/books/books';
+
 const Book = ({
+  id,
   bookType,
   bookName,
   bookAuther,
   bookProgress,
   bookChapter,
-}) => (
-  <BookWrapper>
-    <BookData>
-      <BookType>{bookType}</BookType>
-      <BookName>{bookName}</BookName>
-      <BookAuther>{bookAuther}</BookAuther>
-      <BookActions>
-        <BookComments>Comments</BookComments>
-        <BookRemove>Remove</BookRemove>
-        <BookEdit>Edit</BookEdit>
-      </BookActions>
-    </BookData>
-    <BookProgressWrapper>
-      <BookProgress>
-        <BookProgressBar />
-        <div>
-          <BookProgressNumber>{bookProgress}</BookProgressNumber>
-          <BookProgressStatus>Completed</BookProgressStatus>
-        </div>
-      </BookProgress>
+}) => {
+  const dispatch = useDispatch();
+  return (
+    <BookWrapper>
+      <BookData>
+        <BookType>{bookType}</BookType>
+        <BookName>{bookName}</BookName>
+        <BookAuther>{bookAuther}</BookAuther>
+        <BookActions>
+          <BookComments>Comments</BookComments>
+          <BookRemove onClick={() => dispatch(removeBook(id))}>
+            Remove
+          </BookRemove>
+          <BookEdit>Edit</BookEdit>
+        </BookActions>
+      </BookData>
+      <BookProgressWrapper>
+        <BookProgress>
+          <BookProgressBar />
+          <div>
+            <BookProgressNumber>{bookProgress}</BookProgressNumber>
+            <BookProgressStatus>Completed</BookProgressStatus>
+          </div>
+        </BookProgress>
 
-      <BookProgressText>
-        <CurrentChapter>Current Chapter</CurrentChapter>
-        <ChapterNumber>{bookChapter}</ChapterNumber>
-        <UpdateProgress>Update Progress</UpdateProgress>
-      </BookProgressText>
-    </BookProgressWrapper>
-  </BookWrapper>
-);
+        <BookProgressText>
+          <CurrentChapter>Current Chapter</CurrentChapter>
+          <ChapterNumber>{bookChapter}</ChapterNumber>
+          <UpdateProgress>Update Progress</UpdateProgress>
+        </BookProgressText>
+      </BookProgressWrapper>
+    </BookWrapper>
+  );
+};
 
 export default Book;
