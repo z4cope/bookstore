@@ -19,8 +19,7 @@ import {
   ChapterNumber,
   UpdateProgress,
 } from './styles/book';
-
-import { removeBook } from '../../redux/books/books';
+import { deleteBook } from '../../redux/books/books';
 
 const Book = ({
   id,
@@ -39,7 +38,7 @@ const Book = ({
         <BookAuther>{bookAuther}</BookAuther>
         <BookActions>
           <BookComments>Comments</BookComments>
-          <BookRemove onClick={() => dispatch(removeBook(id))}>
+          <BookRemove onClick={() => dispatch(deleteBook(id))}>
             Remove
           </BookRemove>
           <BookEdit>Edit</BookEdit>

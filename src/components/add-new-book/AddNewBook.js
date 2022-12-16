@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { postBook } from '../../redux/books/books';
 import {
   NewBookWrapper,
   SectionTitle,
@@ -7,37 +8,46 @@ import {
   NewAutherName,
   SubmitBook,
 } from './styles/addNewBook';
-import { addBook } from '../../redux/books/books';
 
 const AddNewBook = () => {
   const dispatch = useDispatch();
-  const [bookName, setBookName] = useState('');
-  const [autherName, setAutherName] = useState('');
-  const [bookId, setBookId] = useState('');
+  const [book, setBook] = useState({
+    title: '',
+    author: '',
+  });
 
   const prevDefault = (e) => {
     e.preventDefault();
-    setBookName('');
-    setAutherName('');
-    setBookId(Date.now());
+    setBook(() => ({
+      title: '',
+      author: '',
+    }));
+  };
+
+  const handleBookData = (e) => {
+    const { name, value } = e.target;
+    setBook((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
   return (
     <NewBookWrapper onSubmit={(e) => prevDefault(e)}>
       <SectionTitle>Add New Book</SectionTitle>
       <div className="data-wrapper">
         <NewBookName
-          value={bookName}
-          onChange={(e) => setBookName(e.target.value)}
+          name="title"
+          value={book.title}
+          onChange={handleBookData}
           placeholder="Book title"
         />
         <NewAutherName
-          value={autherName}
-          onChange={(e) => setAutherName(e.target.value)}
-          placeholder="Auther name"
+          name="author"
+          value={book.author}
+          onChange={handleBookData}
+          placeholder="Author name"
         />
-        <SubmitBook
-          onClick={() => dispatch(addBook(bookName, autherName, bookId))}
-        >
+        <SubmitBook onClick={() => dispatch(postBook(book))} type="submit">
           ADD BOOK
         </SubmitBook>
       </div>

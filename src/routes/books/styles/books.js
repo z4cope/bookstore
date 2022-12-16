@@ -6,4 +6,7 @@ export const BooksContainer = styled.section`
   flex-direction: column;
   gap: 1rem;
   border-bottom: 1px solid rgb(232, 232, 232);
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
