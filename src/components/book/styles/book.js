@@ -4,15 +4,21 @@ export const BookWrapper = styled.article`
   background: #fff;
   border: 1px solid rgb(232, 232, 232);
   display: flex;
+  flex-wrap: wrap;
   border-radius: 3px;
   justify-content: space-between;
   padding: 2rem;
+  @media screen and (max-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const BookData = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  flex: 1 1 10rem;
 `;
 
 export const BookType = styled.h2`
@@ -32,6 +38,10 @@ export const BookActions = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  @media screen and (max-width: 768px) {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 `;
 
 export const BookComments = styled.button`
@@ -70,6 +80,15 @@ export const BookProgressWrapper = styled.div`
   align-items: center;
   gap: 4rem;
   width: 45%;
+  flex: 1 1 10rem;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 0;
+  }
 `;
 
 export const BookProgress = styled.div`
@@ -77,6 +96,11 @@ export const BookProgress = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const BookProgressBar = styled.div`
@@ -107,6 +131,9 @@ export const BookProgressText = styled.div`
   align-items: flex-start;
   gap: 0.5rem;
   width: 50%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CurrentChapter = styled.h3`

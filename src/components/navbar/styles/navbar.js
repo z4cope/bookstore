@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
 export const NavbarNav = styled.nav`
-  height: 10vh;
+  min-height: 10vh;
   background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3rem;
   border-bottom: 1px solid rgb(232, 232, 232);
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const NavItems = styled.ul`
@@ -16,6 +19,10 @@ export const NavItems = styled.ul`
   align-items: center;
   list-style: none;
   gap: 3rem;
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
   a {
     letter-spacing: 0.1rem;
     text-transform: uppercase;
@@ -27,6 +34,9 @@ export const NavItems = styled.ul`
     font-size: 2rem;
     letter-spacing: 0;
     text-transform: initial;
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -46,6 +56,9 @@ export const UserProfile = styled.div`
       transition: all 0.3s ease;
       &:hover {
         background-color: rgb(232, 232, 232);
+      }
+      @media screen and (max-width: 768px) {
+        width: 50%;
       }
     }
   }

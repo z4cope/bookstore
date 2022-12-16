@@ -23,7 +23,7 @@
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "react/prop-types": 0,
+    "react/prop-types": "off",
     "import/prefer-default-export": "off"
   },
   "ignorePatterns": ["dist/", "build/"]

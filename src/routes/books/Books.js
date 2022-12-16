@@ -1,24 +1,36 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { BooksContainer } from './styles/books';
+import { fetchBooks } from '../../redux/books/books';
 import Book from '../../components/book/Book';
-import books from '../../fixtures/booksData';
 import AddNewBook from '../../components/add-new-book/AddNewBook';
 
-const Books = () => (
-  <>
-    <BooksContainer>
-      {books.map((book) => (
-        <Book
-          key={book.id}
-          bookType={book.bookType}
-          bookName={book.bookName}
-          bookAuther={book.bookAuther}
-          bookProgress={book.bookProgress}
-          bookChapter={book.bookChapter}
-        />
-      ))}
-    </BooksContainer>
-    <AddNewBook />
-  </>
-);
+const Books = () => {
+  const { booksArr } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  return (
+    <>
+      <BooksContainer>
+        {booksArr.map((book) => (
+          <Book
+            key={book.item_id}
+            id={book.item_id}
+            bookType={book.bookType}
+            bookName={book.title}
+            bookAuther={book.author}
+            bookProgress={book.bookProgress}
+            bookChapter={book.bookChapter}
+          />
+        ))}
+      </BooksContainer>
+      <AddNewBook />
+    </>
+  );
+};
 
 export default Books;
